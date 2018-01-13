@@ -8,6 +8,9 @@ const express = require('express')
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+// Language Translator service
+const multiLanguage = require('./routes/multi-language')
+app.use('/language', multiLanguage)
 // Set up server config
 const port = process.env.PORT || process.env.VCAP_APP_PORT || 3000
 const host = process.env.HOST || '0.0.0.0'
